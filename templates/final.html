@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Report</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Download Report</h1>
+        <button id="download-btn">Download Report</button>
+    </div>
+
+    <script>
+        
+
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const patientId = localStorage.getItem('patient_id');
+            if (patientId) {
+                window.location.href = `http://localhost:5000/download/${patientId}`;
+            } else {
+                alert('Patient ID not found in local storage.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login Form Design | CodeLab</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">OPIOID DETECTION</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- Link to the login page -->
+            
+        </nav>
+    </div>
+    
+    <!-- Login Form -->
+    <div class="wrapper">
+        <div class="title">
+            Patient Login
+        </div>
+        <form id="login-form">
+            <div class="field">
+                <input type="text" id="patient_id" required>
+                <label>Patient ID</label>
+            </div>
+            <div class="field">
+                <input type="text" id="dob" required>
+                <label>Date of Birth (YYYY-MM-DD)</label>
+            </div>
+            <div class="content">
+                <div class="checkbox">
+                    <input type="checkbox" id="remember-me">
+                    <label for="remember-me">Remember me</label>
+                </div>
+            </div>
+            <div class="field">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+    
+</body>
+<script>
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const patient_id = document.getElementById('patient_id').value;
+    const dob = document.getElementById('dob').value;
+
+    fetch('http://localhost:5000/Patient_login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ patient_id: patient_id, dob: dob })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Login successful') {
+            localStorage.setItem('patient_id', patient_id);
+
+            alert('Login successful!');
+            window.location.href = 'patient (1).html'; 
+        } else {
+            alert(data.detail || 'Login failed');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+});
+
+</script>
+</html>

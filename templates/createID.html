@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Patient ID</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="createID.css">
+    <link rel="stylesheet" href="db.css">
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js"></script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Form Container Styles */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 500px;
+        }
+
+        /* Form Heading */
+        h1 {
+            color: #009d71;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Form Group Styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Button Styles */
+        .btn-submit {
+            display: inline-block;
+            background-color: #00c389;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #00c389;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            width: 100%;
+            height: 70px;
+            background: #00c389;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-right: 400px;
+            gap: 1.5rem;
+        }
+
+        .navbar .nav-links li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links li.highlight a {
+            background-color: rgb(247, 240, 240);
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #00c389;
+            transition: background-color 0.3s;
+        }
+
+        .navbar .nav-links li.highlight a:hover {
+            background-color: black;
+            color: #ffffff;
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 2rem;
+                height: auto;
+            }
+
+            .navbar .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 10px;
+                gap: 1rem;
+            }
+
+            .navbar .nav-links li {
+                margin: 0;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <i class='bx bxs-smile'></i>
+            <span class="text">Doctor's Log</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="#create-patient-id">
+                    <i class='bx bxs-id-card'></i>
+                    <span class="text">Create Patient's ID</span>
+                </a>
+            </li>
+            <li>
+                <a href="#Existing-ID">
+                    <i class='bx bxs-brain'></i>
+                    <span class="text">Existing ID</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="side-menu">
+            <li>
+                <a href="login.html" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- Main Content -->
+    <main id="create-patient-id">
+        <div class="container">
+            <form id="create-id-form">
+                <h1>Create Patient's ID</h1>
+                <div class="form-group">
+                    <label for="patient-name">Patient Name:</label>
+                    <input type="text" id="patient-name" name="Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="patient-dob">Date of Birth:</label>
+                    <input type="date" id="patient-dob" name="Date_of_Birth" required>
+                </div>
+                <div class="form-group">
+                    <label for="patient-gender">Gender:</label>
+                    <select id="patient-gender" name="Gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="patient-contact">Contact Number:</label>
+                    <input type="tel" id="patient-contact" name="Contact_Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="patient-email">Email Address:</label>
+                    <input type="email" id="patient-email" name="Email_ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="patient-address">Address:</label>
+                    <textarea id="patient-address" name="Address" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Create ID</button>
+            </form>
+        </div>
+    </main>
+
+    <main id="Existing-ID" style="display: none;">
+        <div class="wrapper">
+            <div class="title">
+                Patient Login
+            </div>
+            <form id="login-form">
+                <div class="field">
+                    <input type="text" id="patient_id" required>
+                    <label>Patient ID</label>
+                </div>
+                <div class="field">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+        
+    </main>
+    <script>
+        document.getElementById('create-id-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Prepare form data
+            const formData = {
+                Name: document.getElementById('patient-name').value,
+                Date_of_Birth: document.getElementById('patient-dob').value,
+                Gender: document.getElementById('patient-gender').value,
+                Contact_Number: document.getElementById('patient-contact').value,
+                Email_ID: document.getElementById('patient-email').value,
+                Address: document.getElementById('patient-address').value,
+            };
+
+            console.log("Form Data:", formData);
+
+            // Send form data to the server
+            fetch('http://localhost:5000/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data['Patient ID']) {
+                        alert(`Patient ID ${data['Patient ID']} created successfully!`);
+                        // Store patient ID in local storage
+                        localStorage.setItem('patientId', data['Patient ID']);
+                        window.location.href='prescription.html';
+                        document.getElementById('create-id-form').reset(); // Reset the form
+                    } else {
+                        alert('Failed to create Patient ID. ' + (data.error || ''));
+                    }
+                })
+                .catch(error => {
+                    console.error('Fetch Error:', error);
+                    alert('An error occurred while creating the Patient ID.');
+                });
+        });
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const patient_id = document.getElementById('patient_id').value;
+
+    fetch('http://localhost:5000/Patient_exist', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ patient_id: patient_id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Login successful') {
+            localStorage.setItem('patient_id', patient_id);
+
+            
+            window.location.href = 'behaviour.html'; 
+        } else {
+            alert(data.detail || 'Login failed');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+});
+    </script>
+    <script src="db_1.js"></script>
+
+</body>
+
+</html>

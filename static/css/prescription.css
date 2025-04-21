@@ -1,0 +1,81 @@
+
+
+/* CSS for Blood Report Analysis Page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    color:  #00c389;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00c389;
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: #00c389;
+}
+
+input[type="submit"] {
+    background-color: #00c389;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #00c389;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-align: center;
+    color:  #00c389;
+}
+
+p {
+    font-size: 1rem;
+    color: #00c389;
+    text-align: center;
+}

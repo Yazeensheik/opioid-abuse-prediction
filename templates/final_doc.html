@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Report</title>
+    <style>
+        /* Styles for the body */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Wrapper Styles */
+        .wrapper {
+            width: 500px;
+            max-width: 800px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Title Styles */
+        .wrapper .title {
+            font-size: 2rem;
+            font-weight: 900;
+            text-align: center;
+            color: #ffffff;
+            background: #00c389;
+            padding: 20px;
+            border-radius: 15px 15px 0 0;
+            margin: -30px -30px 30px -30px; /* Adjust margin to fit wrapper */
+            box-sizing: border-box;
+        }
+
+        /* Container Styles */
+        .container {
+            text-align: center;
+        }
+
+        /* Button Styles */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #00c389;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #008f6b;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        /* Keyframes for fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="title">Generate Final Report</div>
+        <div class="container">
+            <button id="download-btn">Download Report</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function() {
+            const patientId = localStorage.getItem('patient_id');
+            if (patientId) {
+                window.location.href = `http://localhost:5000/download/${patientId}`;
+                setTimeout(() => {
+                window.location.href = 'createID.html';
+              }, 3000);
+            } else {
+                alert('Patient ID not found in local storage.');
+            }
+        });
+    </script>
+</body>
+</html>

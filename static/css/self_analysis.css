@@ -1,0 +1,94 @@
+/* styles.css */
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container styling */
+.container {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 600px;
+    margin-top: 800px;
+    box-sizing: border-box; /* Ensure padding is included in the element's total width */
+}
+
+/* Heading styling */
+h1.header {
+    font-size: 2em;
+    color: #009d71;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+label {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+    margin-top: 20px; /* Add spacing above the label */
+}
+
+/* Input field styling */
+.input-field {
+    margin-bottom: 20px; /* Add margin to space out input fields */
+}
+
+.input-field input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Placeholder styling */
+::placeholder {
+    color: #999;
+}
+
+/* Button styling */
+button {
+    background-color: #009d71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    margin-top: 20px; /* Add margin to separate the button from other elements */
+}
+
+button:hover {
+    background-color: #007b59;
+}
+
+/* Centered content */
+.row.center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Result section styling */
+p {
+    font-size: 1em;
+    color: #555;
+    text-align: center;
+    margin-top: 10px;
+}

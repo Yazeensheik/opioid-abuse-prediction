@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="self.css">
+
+    <title>Self-Analysis</title>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <section id="sidebar">
+        <a href="{{url_for('patient')}}" class="brand">
+            <i class='bx bx-universal-access'></i>
+            <span class="text">Patient's Log</span>
+        </a>
+        <ul class="side-menu top">
+            
+           
+            <li>
+                <a href="#Self-Analysis-id">
+                    <i class='bx bx-user'></i>
+                    <span class="text">Self Analysis</span>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="side-menu">
+            <li>
+                <a href="login.html" class="logout">
+                    <i class='bx bx-log-out'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- SIDEBAR -->
+
+    <!-- CONTENT -->
+    <section id="content">
+        <!-- NAVBAR -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <a href="#" class="nav-link">Categories</a>
+            <a href="#" class="profile">
+                <img src="man.png" alt="Profile">
+            </a>
+        </nav>
+        <!-- NAVBAR -->
+
+        <!-- MAIN -->
+        <main id="Self-Analysis">
+            <div class="container">
+                <div class="wrapper">
+                    <div class="title">SELF ANALYSIS</div>
+                    <form id="self-analysis-form" class="form-container">
+
+                        <div class="input-field">
+                            <label for="age">Age</label>
+                            <input placeholder="Age in years" name="Age" id="age" type="text" class="validate">
+                        </div>
+
+                        <div class="input-field">
+                            <label for="gender">Gender</label>
+                            <br>
+                            <label><input name="Gender" type="radio" value="Male" /> Male</label>
+                            <label><input name="Gender" type="radio" value="Female" /> Female</label>
+                        </div>
+                        <div class="input-field">
+                            <label for="family_substance_abuse">Family History of Substance Abuse</label>
+                            <br>
+                            <label><input name="Family History of Substance Abuse" type="radio" value="Yes" /> Yes</label>
+                            <label><input name="Family History of Substance Abuse" type="radio" value="No" /> No</label>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="personal_substance_abuse">Personal History of Substance Abuse</label>
+                            <br>
+                            <label><input name="Personal History of Substance Abuse" type="radio" value="Yes" /> Yes</label>
+                            <label><input name="Personal History of Substance Abuse" type="radio" value="No" /> No</label>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="mental_health_conditions">History of Mental Health Conditions</label>
+                            <br>
+                            <label><input name="History of Mental Health Conditions" type="radio" value="Yes" /> Yes</label>
+                            <label><input name="History of Mental Health Conditions" type="radio" value="No" /> No</label>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="chronic_pain_conditions">Chronic Pain Conditions</label>
+                            <br>
+                            <label><input name="Chronic Pain Conditions" type="radio" value="Yes" /> Yes</label>
+                            <label><input name="Chronic Pain Conditions" type="radio" value="No" /> No</label>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="prescribed_medications">Prescribed Medications</label>
+                            <select name="Prescribed Medications" id="prescribed_medications" class="validate">
+                                <option value="" disabled selected>Select Medication</option>
+                                <option value="Tylenol #3 and #4">Tylenol #3 and #4</option>
+                                <option value="Percocet">Percocet</option>
+                                <option value="Xartemis XR">Xartemis XR</option>
+                                <option value="Liquicet">Liquicet</option>
+                                <option value="Anexsia">Anexsia</option>
+                                <option value="Percodan">Percodan</option>
+                                <option value="Vicoprofen">Vicoprofen</option>
+                                <option value="Xodol">Xodol</option>
+                                <option value="Embeda">Embeda</option>
+                                <option value="Vituz">Vituz</option>
+                                <option value="Oxycet">Oxycet</option>
+                                <option value="Hydromet">Hydromet</option>
+                                <option value="Palladone">Palladone</option>
+                                <option value="Ibudone">Ibudone</option>
+                                <option value="Maxidone">Maxidone</option>
+                                <option value="Vicodin ES">Vicodin ES</option>
+                                <option value="Zutripro">Zutripro</option>
+                                <option value="Hycet">Hycet</option>
+                                <option value="Rezira">Rezira</option>
+                                <option value="Lorcet">Lorcet</option>
+                                <option value="Lorcet Plus">Lorcet Plus</option>
+                                <option value="Hycodan">Hycodan</option>
+                                <option value="Tuzistra XR">Tuzistra XR</option>
+                                <option value="OxyContin">OxyContin</option>
+                                <option value="Tussionex">Tussionex</option>
+                                <option value="Opana ER">Opana ER</option>
+                                <option value="TussiCaps">TussiCaps</option>
+                                <option value="Co-Gesic">Co-Gesic</option>
+                                <option value="Zydone">Zydone</option>
+                                <option value="Norco">Norco</option>
+                                <option value="MS Contin">MS Contin</option>
+                                <option value="Zolvit">Zolvit</option>
+                            </select>
+                        </div>
+                        
+
+                        <div class="input-field">
+                            <label for="dosage">Dosage</label>
+                            <select name="Dosage" id="dosage" class="validate">
+                                <option value="" disabled selected>Select Dosage</option>
+                                <option value="25mcg/hour patch">25mcg/hour patch</option>
+                                <option value="10mg">10mg</option>
+                                <option value="5mg">5mg</option>
+                                <option value="50mg">50mg</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="frequency">Frequency</label>
+                            <select name="Frequency" id="frequency" class="validate">
+                                <option value="" disabled selected>Select Frequency</option>
+                                <option value="2 times per day">2 times per day</option>
+                                <option value="3 times per day">3 times per day</option>
+                                <option value="4 times per day">4 times per day</option>
+                                <option value="changed every 72 hours">Changed every 72 hours</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="duration_opioid_use">Duration of Opioid Medication Use</label>
+                            <select name="Duration of Opioid Medication Use" id="duration_opioid_use" class="validate">
+                                <option value="" disabled selected>Select Duration</option>
+                                <option value="1 month">1 month</option>
+                                <option value="2 months">2 months</option>
+                                <option value="3 months">3 months</option>
+                                <option value="4 months">4 months</option>
+                                <option value="6 months">6 months</option>
+                                <option value="1 year">1 year</option>
+                                <option value="2 years">2 years</option>
+                                <option value="3 years">3 years</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="overdose_history">History of Overdose or Hospitalization Due to Opioid Use</label>
+                            <br>
+                            <label><input name="History of Overdose or Hospitalization Due to Opioid Use" type="radio" value="Yes" /> Yes</label>
+                            <label><input name="History of Overdose or Hospitalization Due to Opioid Use" type="radio" value="No" /> No</label>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="social_support">Social Support Network</label>
+                            <select name="Social Support Network" id="social_support" class="validate">
+                                <option value="" disabled selected>Select Support System</option>
+                                <option value="Strong support system">Strong support system</option>
+                                <option value="Moderate support system">Moderate support system</option>
+                                <option value="Limited support system">Limited support system</option>
+                            </select>
+                        </div>
+
+                        <div class="center">
+                            <button type="submit" class="btn-large waves-effect waves-light orange">Predict Score</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- MAIN -->
+    </section>
+    <!-- CONTENT -->
+<script src="self.js"></script>
+</body>
+
+</html>

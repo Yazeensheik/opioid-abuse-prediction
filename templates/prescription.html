@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Analysis</title>
+    <style>
+        
+
+/* CSS for Blood Report Analysis Page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 2rem;
+    color:  #00c389;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #00c389;
+}
+
+input[type="file"] {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+input[type="file"]:hover {
+    border-color: #00c389;
+}
+
+input[type="submit"] {
+    background-color: #00c389;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #00c389;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    text-align: center;
+    color:  #00c389;
+}
+
+p {
+    font-size: 1rem;
+    color: #00c389;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Upload prescription for Opioid Analysis</h1>
+    <form id="prescription-form" enctype="multipart/form-data">
+        <label for="imagefile">Choose an image file:</label><br>
+        <input type="file" name="imagefile" id="imagefile" accept="image/*" required><br><br>
+        <input type="hidden" name="Patient_ID" id="patient_id">
+        <input type="submit" value="Analyze">
+    </form>
+    <h2>Result:</h2>
+    <p id="result"></p>
+
+    <script>
+        // Set the Patient_ID from local storage
+        document.getElementById('patient_id').value = localStorage.getItem('patientId') || '';
+
+        // Handle form submission
+        document.getElementById('prescription-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData();
+            formData.append('imagefile', document.getElementById('imagefile').files[0]);
+            formData.append('Patient_ID', document.getElementById('patient_id').value);
+
+            fetch('http://localhost:5000/prescription', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update the result paragraph with the response
+                const resultElement = document.getElementById('result');
+                if (data.error) {
+                    resultElement.textContent = data.error;
+                } else {
+                    resultElement.innerHTML = `
+                        <strong>Prediction Message:</strong> ${data.Prediction_Message}<br>
+                        <strong>Next Consultation Date:</strong> ${data.Next_Consultation_Date}
+                    `;
+                }
+            })
+            .catch(error => {
+                console.error('Fetch Error:', error);
+                document.getElementById('result').textContent = 'An error occurred while analyzing the prescription.';
+            });
+        });
+    </script>
+</body>
+</html>

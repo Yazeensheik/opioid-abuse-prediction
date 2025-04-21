@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Exisiting Patient ID</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">OPIOID DETECTION</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <!-- Link to the login page -->
+            
+        </nav>
+    </div>
+    
+    <!-- Login Form -->
+    <div class="wrapper">
+        <div class="title">
+            Patient Login
+        </div>
+        <form id="login-form">
+            <div class="field">
+                <input type="text" id="patient_id" required>
+                <label>Patient ID</label>
+            </div>
+            <div class="field">
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </div>
+    
+</body>
+<script>
+document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const patient_id = document.getElementById('patient_id').value;
+
+    fetch('http://localhost:5000/Patient_exist', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ patient_id: patient_id })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Login successful') {
+            localStorage.setItem('patient_id', patient_id);
+
+            
+            window.location.href = 'behaviour.html'; 
+        } else {
+            alert(data.detail || 'Login failed');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    });
+});
+
+</script>
+</html>
